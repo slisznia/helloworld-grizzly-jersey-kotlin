@@ -6,7 +6,7 @@ import javax.ws.rs.Produces
 import javax.ws.rs.core.MediaType
 
 @Path("helloWorld")
-class HelloWorldResource{
+class HelloWorldResource {
     @GET
     fun helloWorld() = "Hello World"
 
