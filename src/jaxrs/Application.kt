@@ -10,7 +10,7 @@ class Application : ResourceConfig() {
         packages("jaxrs.resources")
 
         register(LoggingFeature(Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME),
-                Level.INFO,
+                Level.ALL,
                 LoggingFeature.Verbosity.PAYLOAD_ANY,
                 Integer.MAX_VALUE)
         )

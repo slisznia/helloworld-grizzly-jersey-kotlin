@@ -26,6 +26,7 @@ dependencies {
     compile "org.glassfish.jersey.containers:jersey-container-grizzly2-http:${jerseyVersion}"
     compile "org.glassfish.jersey.inject:jersey-hk2:${jerseyVersion}"
     compile "org.glassfish.jersey.media:jersey-media-json-jackson:${jerseyVersion}"
+    compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8")
 }
 
 /**

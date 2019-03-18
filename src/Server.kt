@@ -1,15 +1,22 @@
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.KotlinModule
 import jaxrs.Application
+import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory
 import javax.ws.rs.core.UriBuilder
+import javax.ws.rs.ext.ContextResolver
 
 fun main(args: Array<String>) {
     val url = UriBuilder.fromUri("http://0.0.0.0/")
             .port(8080)
             .build()
 
+    val resourceConfig = ResourceConfig.forApplication(Application())
+            .register(ContextResolver<ObjectMapper> { ObjectMapper().registerModule(KotlinModule()) })
+
     val httpServer = GrizzlyHttpServerFactory.createHttpServer(
             url,
-            Application(),
+            resourceConfig,
             true
     )
 
